@@ -214,3 +214,28 @@ We can also use pmdarima(Pyramid ARIMA) library which performs a grid search acr
 pmdarima library compare AIC(Akaike Information Criteria) metric to evaluate the performance of different ARIMA models
 
 In the next article on time series, we will explore time series data set using different models in Python
+
+
+You can use this as a reference framework for all your projects. You can use this template for the standard steps in a Time Series project, namely:
+1. Install packages
+2. Load datasets
+3. Get an overview of data
+4. Handle missing values
+5. EDA
+6. Find seasonality in the data
+7. Decompose the time series
+8. Check Stationarity - ADF test
+9. ACF_PACF plots
+10. Box-cox transformations
+11. Train test split
+12. ARIMA model
+13. SARIMA model
+14. SARIMAX model
+15. Simple exponential smoothing model
+16. Holt winters model
+17. Get predictions from the model
+18. Model evaluations
+19. Train and evaluate models
+20. Inverse transform box-cox
+21. Save the final model
+
