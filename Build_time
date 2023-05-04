@@ -1,0 +1,57 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error
+
+# Load the build data from a CSV file
+build_data = pd.read_csv('build_data.csv')
+
+# Split the data into training and testing sets
+train_data, test_data, train_target, test_target = train_test_split(
+    build_data.drop('build_time', axis=1), build_data['build_time'], test_size=0.2, random_state=42)
+
+# Create a Random Forest Regressor model
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+
+# Train the model on the training data
+model.fit(train_data, train_target)
+
+# Evaluate the model on the testing data
+predictions = model.predict(test_data)
+mae = mean_absolute_error(test_target, predictions)
+print(f'Mean Absolute Error: {mae:.2f} seconds')
+
+
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+# Load the performance data from a CSV file
+performance_data = pd.read_csv('performance_data.csv')
+
+# Normalize the data using StandardScaler
+scaler = StandardScaler()
+normalized_data = scaler.fit_transform(performance_data.drop('timestamp', axis=1))
+
+# Use KMeans clustering to identify performance bottlenecks
+kmeans = KMeans(n_clusters=3, random_state=42)
+kmeans.fit(normalized_data)
+
+# Add the cluster labels to the performance data
+performance_data['cluster'] = kmeans.labels_
+
+# Print the number of builds in each cluster
+print(performance_data['cluster'].value_counts())
+
+
+codebase_size,dependencies,cpu_usage,memory_usage,network_usage,build_time
+1000,10,10,500,20,30
+2000,5,20,1000,10,40
+3000,15,30,1500,30,50
+4000,20,40,2000,40,60
+5000,10,50,2500,50,70
+6000,5,60,3000,60,80
+7000,15,70,3500,70,90
+8000,20,80,4000,80,100
+9000,10,90,4500,90,110
+10000,5,100,5000,100,120
