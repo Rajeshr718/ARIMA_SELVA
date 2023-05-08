@@ -1,3 +1,5 @@
+https://www.intel.com/content/www/us/en/developer/topic-technology/artificial-intelligence/training/course-time-series-analysis.html
+
 # ARIMA
 Arima model
 
